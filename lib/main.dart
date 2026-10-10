@@ -65,8 +65,20 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       navigatorKey: navigatorKey,
       title: 'QR Alarm',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
+        colorScheme: const ColorScheme.dark(
+          primary: Colors.orange,
+          secondary: Colors.orangeAccent,
+          surface: Color(0xFF1C1C1E),
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+          elevation: 0,
+        ),
         useMaterial3: true,
       ),
       home: const HomeScreen(),

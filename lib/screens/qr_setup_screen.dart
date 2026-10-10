@@ -51,13 +51,38 @@ class _QrSetupScreenState extends State<QrSetupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Scansiona QR di Sblocco'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Scansiona QR'),
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.orange,
+        elevation: 0,
       ),
-      body: MobileScanner(
-        controller: _controller,
-        onDetect: _onDetect,
+      body: Stack(
+        children: [
+          MobileScanner(
+            controller: _controller,
+            onDetect: _onDetect,
+          ),
+          Positioned(
+            bottom: 40,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                decoration: BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Text(
+                  'Inquadra il codice da registrare',
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
